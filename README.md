@@ -9,7 +9,7 @@ rabbitmq-server
 # Start consumer
 python ./amqp_consumer.py让消费者运行，并且创建队列、交换机和绑定
 
-＃Start producer
+# Start producer
 python ./amqp_publisher.py
 
 # Come from
