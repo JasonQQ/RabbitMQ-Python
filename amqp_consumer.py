@@ -10,8 +10,9 @@ chan.queue_bind(queue="po_box", exchange="sorting_room", routing_key="jason")
 
 def recv_callback(msg):
     print 'Received: ' + msg.body + ' from channel #' + str(msg.channel.channel_id)
+    chan.basic_ack(msg.delivery_tag);
 
-chan.basic_consume(queue='po_box', no_ack=True, callback=recv_callback, consumer_tag="testtag")
+chan.basic_consume(queue='po_box',  callback=recv_callback, consumer_tag="testtag")
 while True:
     chan.wait()
 chan.basic_cancel("testtag")

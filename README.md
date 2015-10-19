@@ -6,8 +6,11 @@ python setup.py install
 # Start RabbitMQ
 rabbitmq-server
 
-# Start consumer
+# Start consumer 1
 python ./amqp_consumer.py让消费者运行，并且创建队列、交换机和绑定
+
+# Start consumer 2, Round-robin dispatching to consumers by default
+python ./amqp_consumer.py
 
 # Start producer
 python ./amqp_publisher.py "Hello Rabbit"
